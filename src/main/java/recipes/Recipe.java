@@ -7,6 +7,7 @@ import java.net.URL;
 import java.time.Duration;
 
 public abstract class Recipe {
+    protected int id;
     protected String name;
     protected GroceryList ingredients;
     protected String categoryFood;
@@ -27,6 +28,17 @@ public abstract class Recipe {
      * @param servings the number of servings from the recipe
      */
     public Recipe(String name, String categoryFood, String kitchenType, URL instructions, double kilocalories, int servings) {
+        this.name = name;
+        this.categoryFood = categoryFood;
+        this.kitchenType = kitchenType;
+        this.instructions = instructions;
+        this.kilocalories = kilocalories;
+        this.servings = servings;
+        ingredients = new GroceryList();
+    }
+
+    public Recipe(int id, String name, String categoryFood, String kitchenType, URL instructions, double kilocalories, int servings) {
+        this.id = id;
         this.name = name;
         this.categoryFood = categoryFood;
         this.kitchenType = kitchenType;
@@ -93,6 +105,18 @@ public abstract class Recipe {
 
     public Duration getDuration() {
         return duration;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setGroceryList(GroceryList groceryList) {
+        this.ingredients = groceryList;
     }
 
     public String toString()

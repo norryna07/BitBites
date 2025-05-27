@@ -9,4 +9,12 @@ public record Ingredient(String name, String category) {
     public String toString() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Ingredient) {
+            return name.equals(((Ingredient) o).name);
+        }
+        return false;
+    }
 }

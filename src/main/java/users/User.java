@@ -6,14 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private final String username;
-    private final String hashedPassword;
+    private String username;
+    private String hashedPassword;
+    private UserRole role;
     private List<MealPlan> mealPlans;
+    private int id;
 
-    public User(String username, String hashedPassword) {
+    public User(String username, String hashedPassword, UserRole role) {
         this.username = username;
         this.hashedPassword = hashedPassword;
+        this.role = role;
         mealPlans = new ArrayList<>();
+    }
+
+    public User(int id, String username, String hashedPassword, UserRole role) {
+        this.username = username;
+        this.hashedPassword = hashedPassword;
+        this.role = role;
+        mealPlans = new ArrayList<>();
+        this.id = id;
     }
 
     public String getUsername() {
@@ -46,5 +57,17 @@ public class User {
 
     public void deleteMealPlan(int index) {
         mealPlans.remove(index);
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String toString() {
+        return "User: " + username + " (" + role.toString().toLowerCase() + ")";
     }
 }

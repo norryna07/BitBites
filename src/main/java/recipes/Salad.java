@@ -15,4 +15,8 @@ public class Salad extends Recipe {
     public Salad(String name, String kitchenType, URL instructions, double kilocalories, int servings) {
         super(name,"Salad", kitchenType, instructions, kilocalories, servings);
     }
+
+    public Salad(int id, String name, String kitchenType, URL instructions, double kilocalories, int servings) {
+        super(id, name,"Salad", kitchenType, instructions, kilocalories, servings);
+    }
 }

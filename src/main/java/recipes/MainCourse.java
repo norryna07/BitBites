@@ -14,4 +14,8 @@ public class MainCourse extends Recipe {
     public MainCourse(String name, String kitchenType, URL instructions, double kilocalories, int servings) {
         super(name,"MainCourse", kitchenType, instructions, kilocalories, servings);
     }
+
+    public MainCourse(int id, String name, String kitchenType, URL instructions, double kilocalories, int servings) {
+        super(id, name,"MainCourse", kitchenType, instructions, kilocalories, servings);
+    }
 }

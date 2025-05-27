@@ -15,4 +15,8 @@ public class Dessert extends Recipe {
     public Dessert(String name, String kitchenType, URL instructions, double kilocalories, int servings) {
         super(name,"Desert", kitchenType, instructions, kilocalories, servings);
     }
+
+    public Dessert(int id, String name, String kitchenType, URL instructions, double kilocalories, int servings) {
+        super(id, name,"Desert", kitchenType, instructions, kilocalories, servings);
+    }
 }

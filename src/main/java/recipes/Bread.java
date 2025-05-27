@@ -15,4 +15,8 @@ public class Bread extends Recipe {
     public Bread(String name, String kitchenType, URL instructions, double kilocalories, int servings) {
         super(name,"Bread", kitchenType, instructions, kilocalories, servings);
     }
+
+    public Bread(int id, String name, String kitchenType, URL instructions, double kilocalories, int servings) {
+        super(id, name,"Bread", kitchenType, instructions, kilocalories, servings);
+    }
 }

@@ -14,4 +14,8 @@ public class Appetizer extends Recipe{
     public Appetizer(String name, String kitchenType, URL instructions, double kilocalories, int servings) {
         super(name, "Appetizer", kitchenType, instructions, kilocalories, servings);
     }
+
+    public Appetizer(int id, String name, String kitchenType, URL instructions, double kilocalories, int servings) {
+        super(id, name,"Appetizer", kitchenType, instructions, kilocalories, servings);
+    }
 }

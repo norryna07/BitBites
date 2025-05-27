@@ -15,4 +15,8 @@ public class Drink extends Recipe {
     public Drink(String name, String kitchenType, URL instructions, double kilocalories, int servings) {
         super(name,"Drink", kitchenType, instructions, kilocalories, servings);
     }
+
+    public Drink(int id, String name, String kitchenType, URL instructions, double kilocalories, int servings) {
+        super(id, name,"Drink", kitchenType, instructions, kilocalories, servings);
+    }
 }

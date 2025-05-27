@@ -39,4 +39,8 @@ public enum Unit {
         }
         return this.type.equals(other.type);
     }
+
+    public String toString() {
+        return this.name().toLowerCase();
+    }
 }

@@ -1,5 +1,4 @@
 
-import emil.Emil;
 import main.java.RecipeDatabase;
 import main.java.recipes.Recipe;
 import main.java.recipes.RecipeFactory;

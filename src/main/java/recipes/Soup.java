@@ -15,4 +15,8 @@ public class Soup extends Recipe {
     public Soup(String name, String kitchenType, URL instructions, double kilocalories, int servings) {
         super(name,"Soup", kitchenType, instructions, kilocalories, servings);
     }
+
+    public Soup(int id, String name, String kitchenType, URL instructions, double kilocalories, int servings) {
+        super(id, name,"Soup", kitchenType, instructions, kilocalories, servings);
+    }
 }

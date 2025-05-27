@@ -38,7 +38,7 @@ public class ConsoleService {
         String password = scanner.nextLine();
 
         String hashed = PasswordUtils.hashPassword(password);
-        users.put(username, new User(username, hashed));
+        users.put(username, new User(username, hashed, UserRole.COOKER));
 
         System.out.println("User " + username + " registered successfully");
         return true;

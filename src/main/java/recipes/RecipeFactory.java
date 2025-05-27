@@ -1,6 +1,7 @@
 package main.java.recipes;
 
 import main.java.groceries.GroceryItem;
+import main.java.groceries.GroceryList;
 import main.java.groceries.Ingredient;
 import main.java.groceries.Unit;
 import org.jsoup.Jsoup;
@@ -12,6 +13,22 @@ import java.io.IOException;
 import java.net.URL;
 
 public class RecipeFactory {
+
+    public static Recipe createRecipe(int id, String name, String categoryFood, String kitchenType, URL instructions, double kilocalories, int servings, GroceryList list) {
+        Recipe recipe;
+        recipe = switch (categoryFood) {
+            case "Appetizer" -> new Appetizer(id, name, kitchenType, instructions, kilocalories, servings);
+            case "Bread" -> new Bread(id, name, kitchenType, instructions, kilocalories, servings);
+            case "Dessert" -> new Dessert(id, name, kitchenType, instructions, kilocalories, servings);
+            case "Drink" -> new Drink(id, name, kitchenType, instructions, kilocalories, servings);
+            case "MainCourse" -> new MainCourse(id, name, kitchenType, instructions, kilocalories, servings);
+            case "Salad" -> new Salad(id, name, kitchenType, instructions, kilocalories, servings);
+            case "Soup" -> new Soup(id, name, kitchenType, instructions, kilocalories, servings);
+            default -> new MainCourse(id, name, kitchenType, instructions, kilocalories, servings);
+        };
+        recipe.setGroceryList(list);
+        return recipe;
+    }
 
     public static Recipe createRecipe(URL recipeURL) {
         String host = recipeURL.getHost();

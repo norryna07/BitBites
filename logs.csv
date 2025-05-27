@@ -1,0 +1,79 @@
+Timestamp,Action
+2025-05-26 17:20:07,ConnectionException: Cannot load db.proprieties,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database.,main
+2025-05-26 17:20:07,ConnectionException: Cannot load db.proprieties,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database.,main
+2025-05-26 17:20:07,ConnectionException: Cannot load db.proprieties,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database.,main
+2025-05-26 17:20:07,ConnectionException: Cannot load db.proprieties,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database.,main
+2025-05-26 17:20:07,ConnectionException: Cannot load db.proprieties,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database.,main
+2025-05-26 17:20:07,ConnectionException: Cannot load db.proprieties,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database.,main
+2025-05-26 17:20:07,ConnectionException: Cannot load db.proprieties,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database,main
+2025-05-26 17:20:07,ConnectionException: Cannot connect to database.,main
+Timestamp,Action
+2025-05-26 17:21:11,UserException: Cannot add user to database: admin,main
+2025-05-26 17:21:11,UserException: Cannot add user to database: cooker,main
+2025-05-26 17:21:11,UserException: Cannot add user to database: writer,main
+Timestamp,Action, Thread
+2025-05-26 17:22:43,UserException: Cannot add user to database: admin,main
+2025-05-26 17:22:44,UserException: Cannot add user to database: cooker,main
+2025-05-26 17:22:44,UserException: Cannot add user to database: writer,main
+Timestamp,Action, Thread
+2025-05-26 17:23:23,UserException: Cannot add user to database: admin,main
+2025-05-26 17:23:23,UserException: Cannot add user to database: cooker,main
+2025-05-26 17:23:23,UserException: Cannot add user to database: writer,main
+Timestamp,Action, Thread
+2025-05-26 17:26:47,INSERTED into users with id 1,main
+2025-05-26 17:26:47,INSERTED into users with id 2,main
+2025-05-26 17:26:47,INSERTED into users with id 3,main
+2025-05-26 17:26:47,UserException: Cannot update user in database: 0,main
+Timestamp,Action, Thread
+2025-05-26 17:28:42,UserException: Cannot add user to database: admin,main
+2025-05-26 17:28:42,UserException: Cannot add user to database: cooker,main
+2025-05-26 17:28:42,UserException: Cannot add user to database: writer,main
+2025-05-26 17:28:43,UserException: Cannot update user in database: 0,main
+Timestamp,Action, Thread
+2025-05-26 17:29:04,INSERTED into users with id 7,main
+2025-05-26 17:29:04,INSERTED into users with id 8,main
+2025-05-26 17:29:04,INSERTED into users with id 9,main
+2025-05-26 17:29:04,UserException: Cannot update user in database: 0,main
+Timestamp,Action, Thread
+2025-05-26 17:30:02,UserException: Cannot add user to database: admin1,main
+2025-05-26 17:30:02,UserException: Cannot add user to database: cooker2,main
+2025-05-26 17:30:02,UserException: Cannot add user to database: writer3,main
+2025-05-26 17:30:02,UserException: Cannot update user in database: 0,main
+Timestamp,Action, Thread
+2025-05-26 17:30:23,INSERTED into users with id 13,main
+2025-05-26 17:30:23,INSERTED into users with id 14,main
+2025-05-26 17:30:23,INSERTED into users with id 15,main
+2025-05-26 17:30:23,UserException: Cannot update user in database: 0,main
+Timestamp,Action, Thread
+2025-05-26 17:32:08,UserException: Cannot add user to database: admin11,main
+2025-05-26 17:32:08,UserException: Cannot add user to database: cooker22,main
+2025-05-26 17:32:08,UserException: Cannot add user to database: writer33,main
+2025-05-26 17:32:08,UPDATED users with id 2,main
+Timestamp,Action, Thread
+2025-05-26 17:32:48,UserException: Cannot add user to database: admin11,main
+2025-05-26 17:32:48,UserException: Cannot add user to database: cooker22,main
+2025-05-26 17:32:48,UserException: Cannot add user to database: writer33,main
+2025-05-26 17:32:48,UserException: Cannot update user in database: 0,main
+Timestamp,Action, Thread
+2025-05-26 17:33:09,UserException: Cannot add user to database: admin11,main
+2025-05-26 17:33:09,UserException: Cannot add user to database: cooker22,main
+2025-05-26 17:33:09,UserException: Cannot add user to database: writer33,main
+2025-05-26 17:33:09,UserException: Cannot update user in database: 0,main
+Timestamp,Action, Thread
+2025-05-26 17:33:58,UserException: Cannot add user to database: admin11,main
+2025-05-26 17:33:58,UserException: Cannot add user to database: cooker22,main
+2025-05-26 17:33:58,UserException: Cannot add user to database: writer33,main
+2025-05-26 17:33:58,UPDATED users with id 9,main

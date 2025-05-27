@@ -4,7 +4,9 @@ out/
 !**/src/test/**/out/
 .idea/
 lib/
-
+/db.proprieties
+/src/Tests.java
+/logs.csv
 ### Eclipse ###
 .apt_generated
 .classpath

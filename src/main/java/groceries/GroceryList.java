@@ -63,4 +63,8 @@ public class GroceryList {
         }
         return result.toString();
     }
+
+    public Map<Ingredient, GroceryItem> getItems() {
+        return items;
+    }
 }
