@@ -2,6 +2,8 @@ package main.java.groceries;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.LinkedHashMap;
 
 /**
  * Store a grocery list with grocery items.
@@ -62,6 +64,25 @@ public class GroceryList {
             result.append(item.toString() + "\n");
         }
         return result.toString();
+    }
+
+    public void sortedGroceryList() {
+        this.items = items.entrySet().stream()
+                .sorted((e1, e2) -> {
+                    try {
+                        double q1 = UnitConverter.convert(e1.getValue().quantity(), e1.getValue().unit(), Unit.GRAM);
+                        double q2 = UnitConverter.convert(e2.getValue().quantity(), e2.getValue().unit(), Unit.GRAM);
+                        return Double.compare(q2, q1);
+                    } catch (IllegalArgumentException e) {
+                        return 0;
+                    }
+                })
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new // maintain order
+                ));
     }
 
     public Map<Ingredient, GroceryItem> getItems() {

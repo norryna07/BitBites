@@ -14,6 +14,10 @@ public class DailyMealPlan extends MealPlan {
         dailySchedules = new DailySchedule[1];
     }
 
+    public String getType() {
+        return "daily";
+    }
+
     /**
      * Generate the daily plan based on preferences
      * @param preferences contains:
@@ -60,7 +64,7 @@ public class DailyMealPlan extends MealPlan {
 
         // select with random the breakfast
         Recipe breakfast = breakfastOptions.get(rand.nextInt(breakfastOptions.size()));
-        recipes.addLast(breakfast);
+        recipes.put(breakfast.getId(), breakfast);
 
         // select the lunchSoup options
         List<Recipe> lunchSoupOptions = options.stream()
@@ -68,7 +72,7 @@ public class DailyMealPlan extends MealPlan {
 
         // select with random the lunch soup
         Recipe lunchSoup = lunchSoupOptions.get(rand.nextInt(lunchSoupOptions.size()));
-        recipes.addLast(lunchSoup);
+        recipes.put(lunchSoup.getId(),lunchSoup);
 
         // select the lunchMainCourse options
         List<Recipe> lunchMainCourseOptions = options.stream()
@@ -76,7 +80,7 @@ public class DailyMealPlan extends MealPlan {
 
         // select with random the lunch main course
         Recipe lunchMainCourse = lunchMainCourseOptions.get(rand.nextInt(lunchMainCourseOptions.size()));
-        recipes.addLast(lunchMainCourse);
+        recipes.put(lunchMainCourse.getId(),lunchMainCourse);
 
         // select the dinnerMainCourse options
         List<Recipe> dinnerMainCourseOptions = options.stream()
@@ -84,7 +88,7 @@ public class DailyMealPlan extends MealPlan {
 
         // select with random the dinner main course
         Recipe dinnerMainCourse = dinnerMainCourseOptions.get(rand.nextInt(dinnerMainCourseOptions.size()));
-        recipes.addLast(dinnerMainCourse);
+        recipes.put(dinnerMainCourse.getId(), dinnerMainCourse);
 
         // select the dinnerDessert options
         List<Recipe> dinnerDessertOptions = options.stream()
@@ -92,9 +96,14 @@ public class DailyMealPlan extends MealPlan {
 
         // select with random the dinner dessert
         Recipe dinnerDessert = dinnerDessertOptions.get(rand.nextInt(dinnerDessertOptions.size()));
-        recipes.addLast(dinnerDessert);
+        recipes.put(dinnerDessert.getId(), dinnerDessert);
 
 
-        dailySchedules[0] = new DailySchedule(0, 1, 2, 3, 4);
+        dailySchedules[0] = new DailySchedule(
+                breakfast.getId(),
+                lunchSoup.getId(),
+                lunchMainCourse.getId(),
+                dinnerMainCourse.getId(),
+                dinnerDessert.getId());
     }
 }

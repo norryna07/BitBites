@@ -3,6 +3,8 @@ package main.java.mealplans;
 import main.java.recipes.Recipe;
 
 import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class SelfMealPlan extends MealPlan {
 
@@ -16,12 +18,17 @@ public class SelfMealPlan extends MealPlan {
             return;
         }
         Recipe[] localRecipes = (Recipe[]) args[0];
-        recipes = Arrays.asList(localRecipes);
+        recipes = Arrays.stream(localRecipes)
+                .collect(Collectors.toMap(Recipe::getId, Function.identity()));
+    }
+
+    public String getType() {
+        return "self";
     }
 
     @Override
     public void getPlan() {
-        for (Recipe recipe : recipes) {
+        for (Recipe recipe : recipes.values()) {
             System.out.println(recipe);
         }
     }

@@ -4,9 +4,10 @@ import main.java.groceries.GroceryList;
 import main.java.recipes.Recipe;
 
 import java.util.List;
+import java.util.Map;
 
 public abstract class MealPlan {
-    protected List<Recipe> recipes;
+    protected Map<Integer, Recipe> recipes;
     protected GroceryList groceryList;
     protected DailySchedule[] dailySchedules;
 
@@ -15,7 +16,7 @@ public abstract class MealPlan {
      */
     public void generateGroceryList() {
         groceryList = new GroceryList();
-        for (Recipe recipe : recipes) {
+        for (Recipe recipe : recipes.values()) {
             groceryList = GroceryList.addLists(groceryList, recipe.getIngredients());
         }
     }
@@ -31,4 +32,31 @@ public abstract class MealPlan {
             System.out.println(recipes.get(dailySchedule.dinnerDessert()));
         }
     }
+
+    public List<Recipe> getRecipes() {
+        return recipes.values().stream().toList();
+    }
+
+    public void addRecipe(Recipe recipe) {
+        recipes.put(recipe.getId(), recipe);
+    }
+
+    public DailySchedule[] getDailySchedules() {
+        return dailySchedules;
+    }
+
+    public void setDailySchedules(DailySchedule[] dailySchedules) {
+        this.dailySchedules = dailySchedules;
+    }
+
+    public GroceryList getGroceryList() {
+        groceryList.sortedGroceryList();
+        return groceryList;
+    }
+
+    public void setGroceryList(GroceryList groceryList) {
+        this.groceryList = groceryList;
+    }
+
+    public abstract String getType();
 }

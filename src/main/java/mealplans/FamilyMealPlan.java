@@ -17,6 +17,14 @@ public class FamilyMealPlan extends MealPlan {
         dailySchedules = new DailySchedule[7];
     }
 
+    public String getType() {
+        return "family";
+    }
+
+    public int getMembersNumber() {
+        return membersNumber;
+    }
+
     @Override
     public void generatePlan(Object[]... preferences) {
 
@@ -55,59 +63,59 @@ public class FamilyMealPlan extends MealPlan {
         Recipe recipe;
 
         // breakfast
-        List<Recipe> breakfastOptions = options.stream()
-                .filter(r -> r instanceof Appetizer).toList();
+        List<Recipe> breakfastOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof Appetizer).toList());
 
         List<Integer> breakfastIndexes = new ArrayList<>();
         while (breakfastIndexes.size() < 7) {
-            recipe = breakfastOptions.get(rand.nextInt(breakfastOptions.size()));
+            recipe = breakfastOptions.remove(rand.nextInt(breakfastOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(),recipe);
 
             for (int i = 0; i < recipe.getServings() / membersNumber; i++) {
-                breakfastIndexes.add(recipes.size() - 1);
+                breakfastIndexes.add(recipe.getId());
             }
         }
 
         // soup
-        List<Recipe> soupOptions = options.stream()
-                .filter(r -> r instanceof Soup).toList();
+        List<Recipe> soupOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof Soup).toList());
         List<Integer> soupIndexes = new ArrayList<>();
         while (soupIndexes.size() < 7) {
-            recipe = soupOptions.get(rand.nextInt(soupOptions.size()));
+            recipe = soupOptions.remove(rand.nextInt(soupOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(),recipe);
 
             for (int i = 0; i < recipe.getServings() / membersNumber; i++) {
-                soupIndexes.add(recipes.size() - 1);
+                soupIndexes.add(recipe.getId());
             }
         }
 
         // main course
-        List<Recipe> mainCourseOptions = options.stream()
-                .filter(r -> r instanceof MainCourse).toList();
+        List<Recipe> mainCourseOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof MainCourse).toList());
         List<Integer> mainCourseIndexes = new ArrayList<>();
         while (mainCourseIndexes.size() < 14) {
-            recipe = mainCourseOptions.get(rand.nextInt(mainCourseOptions.size()));
+            recipe = mainCourseOptions.remove(rand.nextInt(mainCourseOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(), recipe);
 
             for (int i = 0; i < recipe.getServings() / membersNumber; i++) {
-                mainCourseIndexes.add(recipes.size() - 1);
+                mainCourseIndexes.add(recipe.getId());
             }
         }
 
         // dessert
-        List<Recipe> dessertOptions = options.stream()
-                .filter(r -> r instanceof Dessert).toList();
+        List<Recipe> dessertOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof Dessert).toList());
         List<Integer> dessertIndexes = new ArrayList<>();
         while (dessertIndexes.size() < 7) {
-            recipe = dessertOptions.get(rand.nextInt(dessertOptions.size()));
+            recipe = dessertOptions.remove(rand.nextInt(dessertOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(), recipe);
 
             for (int i = 0; i < recipe.getServings() / membersNumber; i++) {
-                dessertIndexes.add(recipes.size() - 1);
+                dessertIndexes.add(recipe.getId());
             }
         }
 

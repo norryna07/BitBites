@@ -14,6 +14,10 @@ public class WeeklyMealPlan extends MealPlan {
         dailySchedules = new DailySchedule[7];
     }
 
+    public String getType() {
+        return "weekly";
+    }
+
     @Override
     public void generatePlan(Object[]... preferences) {
 
@@ -51,67 +55,67 @@ public class WeeklyMealPlan extends MealPlan {
                 .toList();
 
         // select the breakfast options
-        List<Recipe> breakfastOptions = options.stream()
-                .filter(r -> r instanceof Appetizer).toList();
+        List<Recipe> breakfastOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof Appetizer).toList());
 
         // for breakfast: select recipes until I obtain 7 servings
         List<Integer> appetizerIndexes = new ArrayList<>();
         Recipe recipe;
         while (appetizerIndexes.size() < 7) {
-            recipe = breakfastOptions.get(rand.nextInt(breakfastOptions.size()));
+            recipe = breakfastOptions.remove(rand.nextInt(breakfastOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(), recipe);
 
             for (int i = 0; i < recipe.getServings(); ++i) {
-                appetizerIndexes.add(recipes.size() - 1);
+                appetizerIndexes.add(recipe.getId());
             }
         }
 
         // select the soup options
-        List<Recipe> soupOptions = options.stream()
-                .filter(r -> r instanceof Soup).toList();
+        List<Recipe> soupOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof Soup).toList());
 
         // for soup: select recipes until I obtain 7 servings
         List<Integer> soupIndexes = new ArrayList<>();
         while (soupIndexes.size() < 7) {
-            recipe = soupOptions.get(rand.nextInt(soupOptions.size()));
+            recipe = soupOptions.remove(rand.nextInt(soupOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(), recipe);
 
             for (int i = 0; i < recipe.getServings(); ++i) {
-                soupIndexes.add(recipes.size() - 1);
+                soupIndexes.add(recipe.getId());
             }
         }
 
         // select the main course options
-        List<Recipe> mainCourseOptions = options.stream()
-                .filter(r -> r instanceof MainCourse).toList();
+        List<Recipe> mainCourseOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof MainCourse).toList());
 
-        // for main course:  select recipes until I obtain 14 servings (lunch and dinner)
+        // for main course: select recipes until I obtain 14 servings (lunch and dinner)
         List<Integer> mainCourseIndexes = new ArrayList<>();
         while (mainCourseIndexes.size() < 14) {
-            recipe = mainCourseOptions.get(rand.nextInt(mainCourseOptions.size()));
+            recipe = mainCourseOptions.remove(rand.nextInt(mainCourseOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(), recipe);
 
             for (int i = 0; i < recipe.getServings(); ++i) {
-                mainCourseIndexes.add(recipes.size() - 1);
+                mainCourseIndexes.add(recipe.getId());
             }
         }
 
         // select the dessert options
-        List<Recipe> dessertOptions = options.stream()
-                .filter(r -> r instanceof Dessert).toList();
+        List<Recipe> dessertOptions = new ArrayList<>(options.stream()
+                .filter(r -> r instanceof Dessert).toList());
 
         // for dessert: select recipes until I obtain 7 servings
         List<Integer> dessertIndexes = new ArrayList<>();
         while (dessertIndexes.size() < 7) {
-            recipe = dessertOptions.get(rand.nextInt(dessertOptions.size()));
+            recipe = dessertOptions.remove(rand.nextInt(dessertOptions.size()));
 
-            recipes.addLast(recipe);
+            recipes.put(recipe.getId(), recipe);
 
             for (int i = 0; i < recipe.getServings(); ++i) {
-                dessertIndexes.add(recipes.size() - 1);
+                dessertIndexes.add(recipe.getId());
             }
         }
 
