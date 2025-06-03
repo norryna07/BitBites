@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<main>
+    <div class="container mt-5 recipe-card">
+            <h2 class="mb-4">🔍 Select preferences for a daily meal plan</h2>
+
+            <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+            <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+            <form th:action="@{/writer/addRecipes}" method="post" class="mb-5">
+
+                <!-- Kitchen Types (Checkboxes) -->
+                <div class="mb-3">
+                    <label class="form-label">Select Category food you want to add to the database:</label>
+                    <select class="form-select" id="category" name="category">
+                        <option value="Appetizer">Appetizer</option>
+                        <option value="Soup">Soup</option>
+                        <option value="Sweets">Sweets</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Bread">Bread</option>
+                        <option value="Salad">Salad</option>
+                        <option value="Cake">Cake</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-cute">Add recipes</button>
+            </form>
+    </div>
+</main>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>

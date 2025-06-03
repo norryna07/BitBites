@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="~{layout :: head}"></head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<main>
+    <div class="container mt-5">
+
+        <h2 class="mb-4">🍽 Your Meal Plan</h2>
+
+        <!-- Show Recipes (Self Plan) -->
+        <div th:if="${plan.mealPlan().recipes != null}">
+            <h4 class="mb-3">Selected Recipes</h4>
+            <ul class="list-group">
+                <li class="list-group-item" th:each="recipe : ${plan.mealPlan().recipes}">
+                    <a th:href="@{/recipe/{id}(id=${recipe.id})}" th:text="${recipe.name}" class="text-decoration-none text-dark"></a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Show Daily Schedule (Daily/Weekly/Family Plan) -->
+        <div th:if="${plan.mealPlan().dailySchedules != null}" class="mt-5">
+            <h4 class="mb-3">🗓 Daily Schedule</h4>
+            <table class="table table-bordered">
+                <thead class="table-light">
+                <tr>
+                    <th>Meal</th>
+                    <th>Recipe</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Breakfast</td>
+                    <td th:each ="ds : ${plan.mealPlan().dailySchedules}"
+                            th:text="${plan.mealPlan().getMapRecipes().get(ds.breakfast()).name}">Breakfast Recipe</td>
+                </tr>
+                <tr>
+                    <td>Lunch (Soup)</td>
+                    <td th:each ="ds : ${plan.mealPlan().dailySchedules}"
+                        th:text="${plan.mealPlan().getMapRecipes().get(ds.lunchSoup()).name}">Soup Recipe</td>
+                </tr>
+                <tr>
+                    <td>Lunch (Main Course)</td>
+                    <td th:each ="ds : ${plan.mealPlan().dailySchedules}"
+                        th:text="${plan.mealPlan().getMapRecipes().get(ds.lunchMainCourse()).name}">Main Course Recipe</td>
+                </tr>
+                <tr>
+                    <td>Dinner (Main Course)</td>
+                    <td th:each ="ds : ${plan.mealPlan().dailySchedules}"
+                        th:text="${plan.mealPlan().getMapRecipes().get(ds.dinnerMainCourse()).name}">Dinner Main</td>
+                </tr>
+                <tr>
+                    <td>Dinner (Dessert)</td>
+                    <td th:each ="ds : ${plan.mealPlan().dailySchedules}"
+                        th:text="${plan.mealPlan().getMapRecipes().get(ds.dinnerDessert()).name}">Dessert</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <form>
+            <div class="form-check mb-2"
+                 th:each="item : ${plan.mealPlan().groceryList.items}">
+                <input class="form-check-input"
+                       type="checkbox"
+                       th:id="${'item-' + item.hashCode()}"
+                />
+                <label class="form-check-label"
+                       th:for="${'item-' + item.hashCode()}"
+                       th:text="${item.getValue().toString()}">
+                    Example Ingredient
+                </label>
+            </div>
+            <p th:if="${#lists.isEmpty(plan.mealPlan().groceryList.items)}" class="text-muted">No ingredients listed.</p>
+
+    </div>
+</main>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>

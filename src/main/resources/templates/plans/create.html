@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+<head th:replace="~{layout :: head}"></head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<div class="container mt-5">
+    <h2>Select Meal Plan Type</h2>
+    <form action="/plans/create" method="post">
+        <div class="form-group mb-3">
+            <label for="type">Plan Type</label>
+            <select class="form-select" id="type" name="type" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="daily">Daily Plan</option>
+                <option value="weekly">Weekly Plan</option>
+                <option value="family">Family Plan</option>
+                <option value="self">Self Plan</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-cute">Continue</button>
+    </form>
+</div>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>

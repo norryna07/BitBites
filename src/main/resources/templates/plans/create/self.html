@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="~{layout :: head}"></head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<main>
+<div class="container mt-5">
+    <h2>Select Recipes for a self meal plan</h2>
+
+    <!-- Recipe list -->
+
+    <h2 class="mb-4 text-center">🍓 Create Your Cute Self Meal Plan 🍓</h2>
+
+    <!-- Search bar -->
+    <div class="mb-4">
+        <input type="text" id="searchInput" class="form-control search-bar" onkeyup="filterRecipes()" placeholder="🔍 Search for a recipe...">
+    </div>
+
+    <!-- Recipe list -->
+    <form method="post" th:action="@{/plans/create/self}">
+        <div class="row">
+            <div class="col-md-6 recipe-checkbox" th:each="recipe : ${recipes}">
+                <div class="recipe-card">
+                    <input class="form-check-input me-2" type="checkbox"
+                           th:id="${'recipe_' + recipe.id}"
+                           th:name="selectedRecipes"
+                           th:value="${recipe.id}" />
+                    <label class="form-check-label" th:for="${'recipe_' + recipe.id}"
+                           th:text="${recipe.name}" style="font-size: 1.1rem; font-weight: 500;">Recipe Name</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-cute">✨ Generate Plan ✨</button>
+        </div>
+    </form>
+</div>
+</main>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<main>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Recipe List</h2>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" th:if="${recipes}">
+        <div class="col" th:each="recipe : ${recipes}">
+            <div class="recipe-card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a th:href="@{/recipe/{id}(id=${recipe.id})}" th:text="${recipe.name}" class="text-decoration-none text-dark"></a>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="${recipe.categoryFood}">Category</h6>
+                    <p class="card-text">
+                        <strong>Kitchen:</strong> <span th:text="${recipe.kitchenType}">Kitchen Type</span><br>
+                        <strong>Kcal:</strong> <span th:text="${recipe.kilocalories}">0</span><br>
+                        <strong>Servings:</strong> <span th:text="${recipe.servings}">1</span>
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a class="btn btn-cute btn-sm" th:href="${recipe.instructions}" target="_blank">View Instructions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4" th:if="${#lists.isEmpty(recipes)}">
+        <p class="text-muted">No recipes available.</p>
+    </div>
+</div>
+</main>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,224 @@
+:root {
+    --main-bg: #fffdf9;
+    --main-text: #531453;
+    --accent: #dca546;
+    --card-bg: #fdf7ef;
+    --border-color: #dca54633;
+    --button-bg: #dca546;
+    --button-text: #531453;
+    --input-bg: #fff;
+    --input-border: #dca54677;
+    --bs-primary: #531453;
+    --bs-secondary: #dca546;
+}
+
+[data-theme="dark"] {
+    --main-bg: #25192c; /* Darker purple base */
+    --main-text: #dca546; /* Light purple text */
+    --accent: #dca546;
+    --card-bg: #531453; /* Deeper card purple */
+    --border-color: #dca54688;
+    --button-bg: #531453; /* Muted purple for buttons */
+    --button-text: #dca546;
+    --input-bg: #531453;
+    --input-border: #531453;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--main-text);
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+header h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+nav a {
+    color: var(--main-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--button-text);
+    background-color: var(--accent);
+    border-radius: 1rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.theme-toggle {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #e6b75f;
+}
+
+.recipe-card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.recipe-card:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+}
+
+.form-check-input {
+    accent-color: var(--accent);
+}
+
+/* Form Styling */
+input, select, textarea {
+    background-color: var(--input-bg);
+    color: var(--main-text);
+    border: 2px solid var(--input-border);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+/* Buttons */
+.btn-cute, .btn {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    font-weight: bold;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.6rem 1.5rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-cute:hover, .btn:hover {
+    background-color: #e6b75f;
+}
+
+.search-bar {
+    border-radius: 2rem;
+    border: 2px solid var(--accent);
+    padding-left: 1rem;
+    background-color: var(--main-bg);
+    color: var(--main-text);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+thead {
+    background-color: var(--accent);
+    color: var(--button-text);
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+/* Alerts / Info Boxes */
+.alert {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Footer */
+footer {
+    border-top: 2px solid var(--border-color);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--main-text);
+}
+
+/* Cards (Generic) */
+.card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Navigation */
+@media (max-width: 576px) {
+    nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+}
+
+/* Links in body content */
+a:not(nav a) {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+a:hover:not(nav a) {
+    color: var(--button-bg);
+}
